@@ -1,7 +1,8 @@
-import Navbar from "./componenets/layout/navbar";
+import Navbar from "./componenets/layout/Navbar";
 import Hero from"./componenets/home/Hero";
 import Categories from "./componenets/home/categories";
 import ProductGrid from "./componenets/home/ProductGrid";
+import FooterLayout from "./componenets/layout/FooterLayout";
 
 
 
@@ -18,7 +19,7 @@ function App() {
       </main>
 
       <footer className="h-20 border-t border-zinc-800 flex items-center justify-center">
-        Footer
+        <FooterLayout />
       </footer>
 
     </div>
