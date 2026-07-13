@@ -9,7 +9,7 @@ function Footer() {
 
          <div>
                 <h3 className="text-yellow-500 font-bold text-lg">کافه لوکس</h3>
-                <p className="text-sm text-gray-400 mt-2 max-w-[200px]">
+                <p className="text-sm text-gray-400 mt-2 max-w-50">
                     تجربه‌ای لوکس از طعم و آرامش، در قلب شهر شما.
                 </p>
          </div>

@@ -1,4 +1,4 @@
-type Product = {
+ export type Product = {
   id: number;
   name: string;
   desc: string;
@@ -6,7 +6,7 @@ type Product = {
   img: string;
 };
 
-function ProductCard({ product }: { product: Product }) {
+function ProductCard({ product ,addToCart }: { product: Product ; addToCart: (product: Product) => void }) {
   return (
     <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden flex flex-col">
       <img
@@ -24,7 +24,7 @@ function ProductCard({ product }: { product: Product }) {
             {product.price.toLocaleString()} تومان
           </span>
 
-          <button className="bg-yellow-500 text-black text-sm font-bold px-4 py-2 rounded-xl">
+          <button onClick={() => addToCart(product)} className="bg-yellow-500 text-black text-sm font-bold px-4 py-2 rounded-xl">
             افزودن به سبد
           </button>
         </div>
