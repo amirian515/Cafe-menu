@@ -18,7 +18,7 @@ function App() {
        <ProductGrid />
       </main>
 
-      <footer className="h-20 border-t border-zinc-800 flex items-center justify-center">
+      <footer >
         <Footer  />
       </footer>
 
