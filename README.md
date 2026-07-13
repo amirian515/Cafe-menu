@@ -1,32 +1,103 @@
-# React + TypeScript + Vite
+# ☕ Cafe Menu
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A lightweight, fast, and modern café menu application built with **React**, **TypeScript**, and **Vite**. This project provides a clean interface for displaying menu items and products with optimal performance.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **⚡ Blazing Fast**: Powered by Vite for instant development server startup and HMR (Hot Module Replacement).
+- **🛡️ Type Safety**: Built with TypeScript to ensure robust, maintainable, and bug-free code.
+- **🧩 Modular Architecture**: Organized into reusable components and centralized static data files.
+- **🎨 Minimal UI**: Simple and user-friendly interface focused on showcasing the menu effectively.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** – UI library
+- **TypeScript** – Static type checking
+- **Vite** – Next-generation build tool
+- **Oxlint** – Fast linting for code quality
 
-## Expanding the Oxlint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```
+src/
+├── assets/              # Static assets (e.g., icons)
+│   └── icons/
+├── components/          # Reusable UI components
+│   ├── home/            # Components specific to the home page
+│   └── layout/          # Layout components (e.g., footer)
+├── data/                # Static application data
+│   ├── items.ts         # Menu items data
+│   └── products.ts      # Product data
+├── App.tsx              # Main application component
+├── index.css            # Global styles
+└── main.tsx             # Application entry point
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## 🚀 Getting Started
+
+Follow these steps to run the project locally.
+
+### Prerequisites
+
+- Node.js (v16 or higher recommended)
+- npm or yarn
+
+### Installation & Setup
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/amirian515/Cafe-menu.git
+    cd Cafe-menu
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3.  **Start the development server**
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
+    The application will be available at `http://localhost:5173`.
+
+4.  **Build for production**
+    ```bash
+    npm run build
+    # or
+    yarn build
+    ```
+
+5.  **Preview the production build**
+    ```bash
+    npm run preview
+    # or
+    yarn preview
+    ```
+
+## 🧹 Linting
+
+To check your code for potential issues, run the linter:
+
+```bash
+npm run lint
+# or
+yarn lint
+```
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to open an issue or submit a pull request if you have ideas to improve this project.
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+**Made with ❤️ by [amirian515](https://github.com/amirian515)**
