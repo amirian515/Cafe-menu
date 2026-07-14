@@ -1,4 +1,4 @@
-function Navbar({ cartCount }: { cartCount: number }){
+function Navbar({ cartCount ,toggleCart }: { cartCount: number; toggleCart :()=>void; }){
     return(
         <header className="h-20 border-b border-zinc-800 bg-black" >
             <div className="max-w-7xl mx-auto h-full px-8 flex items-center justify-between">
@@ -8,7 +8,7 @@ function Navbar({ cartCount }: { cartCount: number }){
                     <a href="#">منو</a>
                     <a href="#">سفارشات</a>
                     <a href="#">پروفایل</a>
-                    <button className="relative">
+                    <button onClick={toggleCart} className="relative">
   🛒
                     <span className="absolute -top-2 -left-2 bg-yellow-500 text-black text-xs w-5 h-5 rounded-full flex items-center justify-center">
                         {cartCount}
