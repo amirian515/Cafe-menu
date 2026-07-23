@@ -31,11 +31,15 @@ function App() {
     }
 
   }
+   function removeFromCart(id:number){
+    setCart(cart.filter(item => item.product.id !== id));
+   }
+
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
 
     <Navbar  cartCount={cart.length}  toggleCart={toggleCart} />
-    {isCartOpen && <Cart toggleCart={toggleCart} items={cart} />}
+    {isCartOpen && <Cart toggleCart={toggleCart} items={cart} removeFromCart={removeFromCart} />}
 
       <main className="flex-1">
        <Hero />
