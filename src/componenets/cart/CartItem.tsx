@@ -16,7 +16,7 @@ function CartItem({
 }: CartItemProps) {
     return(
         <div className="flex items-center justify-between py-3 border-b border-zinc-800 my-5 mx-5">
-            <span className="text-sm text-yellow-500 font-bold">{product.price.toLocaleString()}تومان</span>
+            <span className="text-sm text-yellow-500 font-bold">{(product.price * quantity).toLocaleString()}تومان</span>
             <span className="text-sm">{product.name}</span>
             <div className="flex items-center gap-3">
                 <button className="text-3xl" onClick={()=> decreaseQuantity(product.id)} >-</button>

@@ -97,4 +97,5 @@ export const products = [
     price: 380000,
     img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=500&q=80",
   },
+
 ];
