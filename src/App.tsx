@@ -31,6 +31,30 @@ function App() {
     }
 
   }
+ function increaseQuantity(productId: number) {
+  setCart(
+    cart.map((item) =>
+      item.product.id === productId
+        ? {
+            ...item,
+            quantity: item.quantity + 1,
+          }
+        : item
+    )
+  );
+}
+function decreaseQuantity (productId :number){
+  setCart(
+    cart.map((item) =>
+  item.product.id === productId
+?{
+  ...item,
+  quantity :item.quantity-1,
+}
+:item)
+.filter((item)=> item.quantity >0)
+  )
+}
    function removeFromCart(id:number){
     setCart(cart.filter(item => item.product.id !== id));
    }
@@ -39,7 +63,7 @@ function App() {
     <div className="min-h-screen bg-black text-white flex flex-col">
 
     <Navbar  cartCount={cart.length}  toggleCart={toggleCart} />
-    {isCartOpen && <Cart toggleCart={toggleCart} items={cart} removeFromCart={removeFromCart} />}
+    {isCartOpen && <Cart toggleCart={toggleCart} items={cart} removeFromCart={removeFromCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} />}
 
       <main className="flex-1">
        <Hero />
