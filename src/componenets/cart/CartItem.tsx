@@ -21,7 +21,7 @@ function CartItem({
             <div className="flex items-center gap-3">
                 <button className="text-3xl" onClick={()=> decreaseQuantity(product.id)} >-</button>
                 <span>{quantity}</span>
-                <button className="text-2xl" onClick={()=> increaseQuantity(product.id)}>+</button>
+                <button className="text-2xl " onClick={()=> increaseQuantity(product.id)}>+</button>
             </div>
             <button onClick={() => removeFromCart(product.id)}>
   ❌

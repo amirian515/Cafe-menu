@@ -1,12 +1,16 @@
 import Navbar from "./componenets/layout/Navbar";
-import Hero from"./componenets/home/Hero";
-import Categories from "./componenets/home/Categories";
-import ProductGrid from "./componenets/home/ProductGrid";
+// import Hero from"./componenets/home/Hero";
+// import Categories from "./componenets/home/Categories";
+// import ProductGrid from "./componenets/home/ProductGrid";
 import Footer from "./componenets/layout/Footer";
 import { useState } from "react";
 import type { Product } from "./componenets/home/ProductCard";
 import Cart from "./componenets/cart/Cart";
-
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Menu from "./pages/Menu";
+import Orders from "./pages/Orders";
+import Profile from "./pages/profile";
 
 
 function App() {
@@ -58,17 +62,25 @@ function decreaseQuantity (productId :number){
    function removeFromCart(id:number){
     setCart(cart.filter(item => item.product.id !== id));
    }
-
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
 
     <Navbar  cartCount={cart.length}  toggleCart={toggleCart} />
     {isCartOpen && <Cart toggleCart={toggleCart} items={cart} removeFromCart={removeFromCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} />}
 
+
       <main className="flex-1">
-       <Hero />
+        <Routes>
+          <Route path="/" element={<Home addToCart={addToCart}/>} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/Orders" element={<Orders />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+
+
+       {/* <Hero />
        <Categories />
-       <ProductGrid addToCart={addToCart} />
+       <ProductGrid addToCart={addToCart} /> */}
       </main>
 
       <footer >
