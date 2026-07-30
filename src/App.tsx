@@ -10,7 +10,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Orders from "./pages/Orders";
-import Profile from "./pages/profile";
+import Profile from "./pages/Profile";
 
 
 function App() {

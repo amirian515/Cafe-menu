@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -8,18 +9,34 @@ function Navbar({ cartCount ,toggleCart }: { cartCount: number; toggleCart :()=>
             <div className="max-w-7xl mx-auto h-full px-8 flex items-center justify-between">
                 <h1 className="text-2xl font-bold text-yellow-500"> Cafe luxe</h1>
                 <nav className="flex items-center gap-8">
-                    <Link to ="/">
+                    <NavLink className={({ isActive }) =>
+                            isActive
+                            ? "text-yellow-500 font-bold"
+                            : "text-white hover:text-yellow-400"
+                        } to ="/">
                     <button>خانه</button>
-                    </Link>
-                    <Link to ="/Menu">
+                    </NavLink>
+                    <NavLink to ="/Menu"className= {({ isActive }) =>
+                                isActive
+                                ? "text-yellow-500 font-bold"
+                                : "text-white hover:text-yellow-400"
+                            }>
                     <button>منو</button>
-                    </Link>
-                    <Link to ="/Orders">
+                    </NavLink>
+                    <NavLink to ="/Orders"  className={({ isActive }) =>
+                                isActive
+                                ? "text-yellow-500 font-bold"
+                                : "text-white hover:text-yellow-400"
+                            }>
                     <button>سفارشات</button>
-                    </Link>
-                    <Link to="/profile">
+                    </NavLink>
+                    <NavLink className={({ isActive }) =>
+                            isActive
+                            ? "text-yellow-500 font-bold"
+                            : "text-white hover:text-yellow-400"
+                        } to="/profile">
                         <button>👤</button>
-                    </Link>
+                    </NavLink>
                     <button onClick={toggleCart} className="relative">
   🛒
                     <span className="absolute -top-2 -left-2 bg-yellow-500 text-black text-xs w-5 h-5 rounded-full flex items-center justify-center">
