@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Orders from "./pages/Orders";
 import Profile from "./pages/Profile";
+import { useCart } from "./hooks/useCart";
 
 
 function App() {
@@ -62,10 +63,11 @@ function decreaseQuantity (productId :number){
    function removeFromCart(id:number){
     setCart(cart.filter(item => item.product.id !== id));
    }
+   const [search, setSearch] = useState("");
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
 
-    <Navbar  cartCount={cart.length}  toggleCart={toggleCart} />
+    <Navbar  cartCount={cart.length}  toggleCart={toggleCart} search={search} setSearch={setSearch} />
     {isCartOpen && <Cart toggleCart={toggleCart} items={cart} removeFromCart={removeFromCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} />}
 
 

@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 
 
-function Navbar({ cartCount ,toggleCart }: { cartCount: number; toggleCart :()=>void; }){
+function Navbar({ cartCount ,toggleCart , search,setSearch }: { cartCount: number; toggleCart :()=>void; search:string; setSearch: React.Dispatch<React.SetStateAction<string>>; }){
     return(
         <header className="h-20 border-b border-zinc-800 bg-black" >
             <div className="max-w-7xl mx-auto h-full px-8 flex items-center justify-between">
