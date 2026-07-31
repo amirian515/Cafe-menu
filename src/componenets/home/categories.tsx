@@ -1,12 +1,24 @@
+import Coffe from "../../assests/images/Category/Coffe.jpg"
+import HotDrink from "../../assests/images/Category/HotDrink.jpg"
+import ColdDrink from "../../assests/images/Category/ColdDrink.jpg"
+import FastFood from "../../assests/images/Category/FastFood.jpg"
+import MainFood from "../../assests/images/Category/MainFood.jpeg"
+import BreakFast from "../../assests/images/Category/BreakFast.jpg"
+import Appetizer from "../../assests/images/Category/Appetizer.jpg"
+import Salad from "../../assests/images/Category/Salad.jpg"
+
+
+
+
 const categories = [
-  { name: "قهوه", img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=200&q=80" },
-  { name: "صبحانه", img: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=200&q=80" },
-  { name: "غذای اصلی", img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=200&q=80" },
-  { name: "فست فود", img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=200&q=80" },
-  { name: "دسرها", img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=200&q=80" },
-  { name: "نوشیدنی سرد", img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=200&q=80" },
-  { name: "نوشیدنی گرم", img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=200&q=80" },
-  { name: "سالادها", img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=200&q=80" },
+  { name: "قهوه", img: Coffe },
+  { name: "صبحانه", img: BreakFast },
+  { name: "غذای اصلی", img: MainFood },
+  { name: "فست فود", img: FastFood },
+  { name: "دسرها", img: Appetizer },
+  { name: "نوشیدنی سرد", img: ColdDrink },
+  { name: "نوشیدنی گرم", img: HotDrink },
+  { name: "سالادها", img: Salad },
 ];
 function Categories(){
     return(

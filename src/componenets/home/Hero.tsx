@@ -1,3 +1,6 @@
+import MainImg from "../../assests/images/Hero/MainImg.jpg"
+
+
 function Hero(){
     return(
         <section className=" bg-black">
@@ -8,7 +11,7 @@ function Hero(){
                 <button className="bg-yellow-500 text-black font-bold px-6 py-3 rounded-2xl mt-6">سفارش را شروع کنید</button></div>
                     <div className="w-1/2">
                       <img
-                         src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                         src= {MainImg}
                          alt="استیک با سبزیجات"
                          className="rounded-2xl w-full hv-[400px] object-cover"/>
                     </div>

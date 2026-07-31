@@ -1,101 +1,120 @@
+import Cake from "../assests/images/Products/Cake.jpg"
+import Pasta from "../assests/images/Products/Pasta.jpg"
+import Burger from "../assests/images/Products/Burger.jpg"
+import Cappucino from "../assests/images/Products/Cappucino.jpg"
+import ChickenSandwitch from "../assests/images/Products/ChickenSandwitch.jpg"
+import Panckek from "../assests/images/Products/Panckek.jpg"
+import Crosaint from "../assests/images/Products/Crosaint.jpg"
+import Pizza from "../assests/images/Products/Pizza.jpeg"
+import Salad from "../assests/images/Products/Salad.jpg"
+import Soup from "../assests/images/Products/Soup.jpg"
+import CkickenWing from "../assests/images/Products/ChikenWing.jpg"
+import IceCream from "../assests/images/Products/IceCream.jpg"
+import IceMoka from "../assests/images/Products/IceMoka.jpg"
+import GrillFish from "../assests/images/Products/GrillFish.jpg"
+
+
+
+
+
 export const products = [
   {
     id: 1,
     name: "پاستا آلفردو",
     desc: "پاستا با سس آلفردو خامه‌ای و پنیر پارمزان",
     price: 320000,
-    img: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=500&q=80",
+    img: Pasta,
   },
   {
     id: 2,
     name: "برگر کلاسیک",
     desc: "گوشت گریل شده، پنیر چدار، کاهو و سس مخصوص",
     price: 280000,
-    img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80",
+    img: Burger,
   },
   {
     id: 3,
     name: "چیز کیک تمشک",
     desc: "چیز کیک خانگی با سس توت‌های تازه",
     price: 180000,
-    img: "https://images.unsplash.com/photo-1567171466295-4afa63d45416?auto=format&fit=crop&w=500&q=80",
+    img: Cake,
   },
   {
     id: 4,
     name: "آیس موکا",
     desc: "اسپرسو، شیر، شکلات و یخ",
     price: 150000,
-    img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=500&q=80",
+    img: IceMoka,
   },
   {
     id: 5,
     name: "پیتزا مارگاریتا",
     desc: "خمیر نازک، سس گوجه، پنیر موزارلا و ریحان تازه",
     price: 250000,
-    img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80",
+    img: Pizza,
   },
   {
     id: 6,
     name: "سالاد سزار",
     desc: "کاهو، مرغ گریل، پنیر پارمزان و سس مخصوص سزار",
     price: 190000,
-    img: "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=500&q=80",
+    img: Salad,
   },
   {
     id: 7,
     name: "کروسان کره‌ای",
     desc: "کروسان تازه و ترد، مناسب صبحانه",
     price: 90000,
-    img: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80",
+    img: Crosaint,
   },
   {
     id: 8,
     name: "پنکیک با عسل",
     desc: "پنکیک نرم با عسل طبیعی و میوه‌های تازه",
     price: 160000,
-    img: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=500&q=80",
+    img: Panckek,
   },
   {
     id: 9,
     name: "بستنی وانیلی",
     desc: "بستنی خامه‌ای با سس شکلات و آجیل",
     price: 110000,
-    img: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=500&q=80",
+    img: IceCream,
   },
   {
     id: 10,
     name: "کاپوچینو",
     desc: "اسپرسو با فوم شیر مخملی و پودر دارچین",
     price: 120000,
-    img: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=500&q=80",
+    img: Cappucino,
   },
   {
     id: 11,
     name: "ساندویچ مرغ گریل",
     desc: "مرغ گریل شده، نان مخصوص و سبزیجات تازه",
     price: 210000,
-    img: "https://images.unsplash.com/photo-1553909489-cd47e0ef937f?auto=format&fit=crop&w=500&q=80",
+    img: ChickenSandwitch,
   },
   {
     id: 12,
     name: "سوپ قارچ",
     desc: "سوپ خامه‌ای قارچ، سرو شده با نان تست",
     price: 130000,
-    img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=500&q=80",
+    img: Soup,
   },
   {
     id: 13,
     name: "بال مرغ سوخاری",
     desc: "بال مرغ سوخاری با سس باربیکیو",
     price: 220000,
-    img: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?auto=format&fit=crop&w=500&q=80",
+    img: CkickenWing,
   },
   {
     id: 14,
     name: "دورادو گریل",
     desc: "ماهی دورادو گریل شده با سبزیجات بخارپز",
     price: 380000,
-    img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=500&q=80",
+    img: GrillFish,
   },
 
 ];
