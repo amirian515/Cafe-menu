@@ -3,8 +3,6 @@ import Navbar from "./componenets/layout/Navbar";
 // import Categories from "./componenets/home/Categories";
 // import ProductGrid from "./componenets/home/ProductGrid";
 import Footer from "./componenets/layout/Footer";
-import { useState } from "react";
-import type { Product } from "./componenets/home/ProductCard";
 import Cart from "./componenets/cart/Cart";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -12,6 +10,7 @@ import Menu from "./pages/Menu";
 import Orders from "./pages/Orders";
 import Profile from "./pages/Profile";
 import { useCart } from "./hooks/useCart";
+import { useState } from "react";
 
 
 function App() {
@@ -20,49 +19,14 @@ function App() {
   function toggleCart(){
     setIsCartOpen(!isCartOpen);
   }
-  const [cart, setCart] = useState<{product : Product ; quantity :number}[]>([]);
-  function addToCart(product :Product){
-    const exiting = cart.find((item)=>item.product.id === product.id);
-      if(exiting){
-        setCart(
-          cart.map((item)=>
-            item.product.id === product.id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-        )
-        );
-    }else{
-      setCart([...cart, { product, quantity: 1 }]);
-    }
+  const {
+  cart,
+  addToCart,
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity
+}=useCart();
 
-  }
- function increaseQuantity(productId: number) {
-  setCart(
-    cart.map((item) =>
-      item.product.id === productId
-        ? {
-            ...item,
-            quantity: item.quantity + 1,
-          }
-        : item
-    )
-  );
-}
-function decreaseQuantity (productId :number){
-  setCart(
-    cart.map((item) =>
-  item.product.id === productId
-?{
-  ...item,
-  quantity :item.quantity-1,
-}
-:item)
-.filter((item)=> item.quantity >0)
-  )
-}
-   function removeFromCart(id:number){
-    setCart(cart.filter(item => item.product.id !== id));
-   }
    const [search, setSearch] = useState("");
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
@@ -79,10 +43,6 @@ function decreaseQuantity (productId :number){
           <Route path="/profile" element={<Profile />} />
         </Routes>
 
-
-       {/* <Hero />
-       <Categories />
-       <ProductGrid addToCart={addToCart} /> */}
       </main>
 
       <footer >
