@@ -21,6 +21,7 @@ const filteredProducts = products.filter((product) => {
     product.name.toLowerCase().includes(search.toLowerCase());
 
   return matchCategory && matchSearch;
+
 });
 
 return(
@@ -28,7 +29,7 @@ return(
 
     <Categories
     setCategory={setSelectedCategory}
-    />
+    selectedCategory={selectedCategory}    />
     <input
   dir="rtl"
   type="text"

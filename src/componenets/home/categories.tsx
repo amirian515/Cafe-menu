@@ -21,10 +21,12 @@ const categories = [
   { name: "سالادها", img: Salad },
 ];
 function Categories(
-    {  setCategory
+    {  setCategory , selectedCategory
 }:{
     setCategory:(category:string)=>void;
+    selectedCategory:string;
 }){
+    console.log("selectedCategory:", selectedCategory);
     return(
         <section className="max-w-7xl mx-auto px-8 py-10">
             <div className="grid grid-cols-4 gap-4">
@@ -32,7 +34,11 @@ function Categories(
                     <div
                         key={cat.name}
                         onClick={()=>setCategory(cat.name)}
-                        className="bg-zinc-900 border border-zinc-800 rounded-2xl py-5 flex flex-col items-center gap-2">
+                        className={ `border rounded-2xl py-5 flex flex-col items-center gap-2 cursor-pointer  transition-all duration-300
+                            ${cat.name === selectedCategory
+                            ? "border-yellow-500 shadow-lg scale-105 bg-zinc-950"
+                            : " bg-zinc-900 border-zinc-900 "}`}
+                        >
                         <img
                         src={cat.img}
                         alt={cat.name}

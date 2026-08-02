@@ -33,6 +33,7 @@ return(
 
    <Categories
    setCategory={setSelectedCategory}
+   selectedCategory={selectedCategory}
    />
         <input
      dir="rtl"
