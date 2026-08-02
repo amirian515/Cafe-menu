@@ -12,6 +12,19 @@ import CkickenWing from "../assests/images/Products/ChikenWing.jpg"
 import IceCream from "../assests/images/Products/IceCream.jpg"
 import IceMoka from "../assests/images/Products/IceMoka.jpg"
 import GrillFish from "../assests/images/Products/GrillFish.jpg"
+import Espresso from "../assests/images/Products/Espresso.jpg"
+import VanillaLatte from "../assests/images/Products/VanillaLatte.jpeg"
+import HotChocolate from "../assests/images/Products/HotChocolate.jpg"
+import IceLatte from "../assests/images/Products/IceLatte.jpg"
+import StrawberrySmoothie from "../assests/images/Products/StrawberrySmoothie.jpg"
+import Omelette from "../assests/images/Products/Omelette.jpg"
+import EnglishBreakfast from "../assests/images/Products/EnglishBreakfast.jpg"
+import Cheeseburger from "../assests/images/Products/Cheeseburger.jpg"
+import GreekSalad from "../assests/images/Products/GreekSalad.jpg"
+import Tiramisu from "../assests/images/Products/Tiramisu.jpg"
+import LoadedFries from "../assests/images/Products/LoadedFries.jpg"
+
+
 
 
 
@@ -22,7 +35,7 @@ export const products = [
     id: 1,
     name: "پاستا آلفردو",
     desc: "پاستا با سس آلفردو خامه‌ای و پنیر پارمزان",
-    category:"غذای اصلی",
+    category:"فست فود",
     price: 320000,
     img: Pasta,
   },
@@ -30,7 +43,7 @@ export const products = [
     id: 2,
     name: "برگر کلاسیک",
     desc: "گوشت گریل شده، پنیر چدار، کاهو و سس مخصوص",
-    category:"غذای اصلی",
+    category:"فست فود",
     price: 280000,
     img: Burger,
   },
@@ -55,7 +68,7 @@ export const products = [
     id: 5,
     name: "پیتزا مارگاریتا",
     desc: "خمیر نازک، سس گوجه، پنیر موزارلا و ریحان تازه",
-    category:"غذای اصلی",
+    category:"فست فود",
     price: 250000,
     img: Pizza,
   },
@@ -132,5 +145,93 @@ export const products = [
     price: 380000,
     img: GrillFish,
   },
+  {
+  id: 15,
+  name: "اسپرسو دبل",
+  desc: "دو شات اسپرسو با عطر و طعم قوی قهوه",
+  category: "قهوه",
+  price: 90000,
+  img: Espresso
+},
+{
+  id: 16,
+  name: "لاته وانیلی",
+  desc: "اسپرسو، شیر بخار داده شده و سیروپ وانیل",
+  category: "نوشیدنی گرم",
+  price: 170000,
+  img: VanillaLatte
+},
+{
+  id: 17,
+  name: "هات چاکلت",
+  desc: "شکلات داغ خامه‌ای با طعم غنی کاکائو",
+  category: "نوشیدنی گرم",
+  price: 150000,
+  img: HotChocolate
+},
+{
+  id: 18,
+  name: "آیس لاته",
+  desc: "اسپرسو، شیر سرد و یخ با طعمی تازه",
+  category: "نوشیدنی سرد",
+  price: 160000,
+  img: IceLatte
+},
+{
+  id: 19,
+  name: "اسموتی توت فرنگی",
+  desc: "ترکیب توت فرنگی تازه، شیر و یخ",
+  category: "نوشیدنی سرد",
+  price: 190000,
+  img: StrawberrySmoothie
+},
+{
+  id: 20,
+  name: "املت مخصوص کافه",
+  desc: "تخم مرغ، سبزیجات تازه و پنیر مخصوص",
+  category: "صبحانه",
+  price: 220000,
+  img: Omelette
+},
+{
+  id: 21,
+  name: "صبحانه انگلیسی",
+  desc: "تخم مرغ، سوسیس، لوبیا، قارچ و نان تست",
+  category: "صبحانه",
+  price: 350000,
+  img: EnglishBreakfast
+},
+{
+  id: 22,
+  name: "سیب زمینی ویژه",
+  desc: "سیب زمینی سرخ شده با پنیر و سس مخصوص",
+  category: "فست فود",
+  price: 180000,
+  img: LoadedFries
+},
+{
+  id: 23,
+  name: "چیز برگر ویژه",
+  desc: "برگر گوشت، پنیر چدار، سس مخصوص و سبزیجات",
+  category: "فست فود",
+  price: 340000,
+  img: Cheeseburger
+},
+{
+  id: 24,
+  name: "تیرامیسو",
+  desc: "دسر ایتالیایی با قهوه و خامه ماسکارپونه",
+  category: "دسرها",
+  price: 210000,
+  img: Tiramisu
+},
+{
+  id: 25,
+  name: "سالاد یونانی",
+  desc: "خیار، گوجه، پنیر فتا و زیتون تازه",
+  category: "سالادها",
+  price: 200000,
+  img: GreekSalad
+},
 
 ];
