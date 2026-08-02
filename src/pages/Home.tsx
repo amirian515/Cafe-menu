@@ -34,8 +34,7 @@ return(
    <Categories
    setCategory={setSelectedCategory}
    />
-
-     <input
+        <input
      dir="rtl"
   type="text"
   placeholder="جستجوی قهوه . . . "
