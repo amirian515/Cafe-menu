@@ -8,7 +8,6 @@ import { useCart } from "../../hooks/useCart";
 
 function Layout(){
   const [isCartOpen, setIsCartOpen] = useState(false);
-const [search, setSearch] = useState("");
 const {
   cart,
   addToCart,
@@ -26,8 +25,6 @@ return(
     <Navbar
         cartCount={cart.length}
         toggleCart={toggleCart}
-        search={search}
-        setSearch={setSearch}
     />
     {isCartOpen && (
   <Cart
@@ -41,7 +38,7 @@ return(
 
     <main className="flex-1">
 
-        <Outlet context={{addToCart}} />
+        <Outlet context={{addToCart }} />
 
     </main>
 
