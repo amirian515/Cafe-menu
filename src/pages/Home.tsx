@@ -3,17 +3,13 @@ import Categories from "../componenets/home/Categories";
 import ProductGrid from "../componenets/home/ProductGrid";
 import type { Product } from "../componenets/home/ProductCard";
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
+function Home(){
 
-function Home(
-{
- addToCart
-}
-:
-{
- addToCart:(product:Product)=>void
-}
-){
+const { addToCart } = useOutletContext<{
+  addToCart: (product: Product)=>void;
+}>();
   const [search, setSearch] = useState("");
 
 return(

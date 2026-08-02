@@ -2,34 +2,46 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
+import Cart from "../cart/Cart";
+import { useCart } from "../../hooks/useCart";
 
 
-function Layout(
-{
- cartCount,
- toggleCart
+function Layout(){
+  const [isCartOpen, setIsCartOpen] = useState(false);
+const [search, setSearch] = useState("");
+const {
+  cart,
+  addToCart,
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
+} = useCart();
+
+function toggleCart() {
+  setIsCartOpen(!isCartOpen);
 }
-:
-{
- cartCount:number;
- toggleCart:()=>void;
-}
-){
-  const [search,setSearch] = useState("");
-
 return(
  <div className="min-h-screen bg-black text-white flex flex-col">
 
     <Navbar
-        cartCount={cartCount}
+        cartCount={cart.length}
         toggleCart={toggleCart}
         search={search}
         setSearch={setSearch}
     />
+    {isCartOpen && (
+  <Cart
+    toggleCart={toggleCart}
+    items={cart}
+    removeFromCart={removeFromCart}
+    increaseQuantity={increaseQuantity}
+    decreaseQuantity={decreaseQuantity}
+  />
+)}
 
     <main className="flex-1">
 
-        <Outlet />
+        <Outlet context={{addToCart}} />
 
     </main>
 
