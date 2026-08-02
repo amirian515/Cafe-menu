@@ -8,7 +8,7 @@ import { useState } from "react";
 
 function Menu(){
   const [search, setSearch] = useState("");
-    const [selectedCategory, setSelectedCategory] = useState("همه");
+  const [selectedCategory, setSelectedCategory] = useState("همه");
 const { addToCart } = useOutletContext<{
   addToCart:(product:Product)=>void;
 }>();
