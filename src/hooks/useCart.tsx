@@ -1,18 +1,40 @@
 import { useState , useEffect } from "react";
 import type { Product } from "../componenets/home/ProductCard";
-// import { json } from "stream/consumers";
-// import { stringify } from "querystring";
+type CartItem = {
+  product: Product;
+  quantity: number;
+};
 
+type Order = {
+  id: number;
+  items: CartItem[];
+  total: number;
+  date: string;
+  status :string;
+};
 
 export function useCart(){
 
 const [cart,setCart] = useState<
-{product: Product; quantity:number}[]
+CartItem[]
 >(()=>{
   const savedCart = localStorage.getItem("cart");
   return savedCart === null
   ? []
   :JSON.parse(savedCart)
+});
+const [orders,setOrders] = useState<
+  
+   Order[]
+  
+>(() => {
+
+  const savedOrders = localStorage.getItem("orders");
+
+  return savedOrders === null
+    ? []
+    : JSON.parse(savedOrders);
+
 });
 function addToCart(product: Product) {
 
@@ -77,9 +99,42 @@ function decreaseQuantity (productId :number){
 .filter((item)=> item.quantity >0)
   )
 }
+function placeOrder(){
+
+  const newOrder: Order = {
+    id: Date.now(),
+    items: cart,
+    total: cart.reduce(
+      (sum, item) =>
+        sum + item.product.price * item.quantity,
+      0
+    ),
+    date: new Date().toLocaleDateString("fa-IR"),
+    status :"در انتظار بررسی"
+  };
+
+
+  setOrders((prev)=>[
+    ...prev,
+    newOrder
+  ]);
+
+  setCart([]);
+
+}
 useEffect(()=>{
   localStorage.setItem("cart" , JSON.stringify(cart));},
   [cart])
+  useEffect(()=>{
+
+  localStorage.setItem(
+    "orders",
+    JSON.stringify(orders)
+  );
+
+},[orders])
+
+
 
 return {
 cart,
@@ -87,5 +142,7 @@ addToCart,
 removeFromCart,
 increaseQuantity,
 decreaseQuantity,
+placeOrder,
+orders,
 
 };}[]

@@ -1,68 +1,150 @@
 import { useOutletContext } from "react-router-dom";
 import type { Product } from "../componenets/home/ProductCard";
 
-function Orders(){
-const {cart} = useOutletContext<{
-  cart:{
-    product:Product;
-    quantity:number;
+type Order = {
+  id: number;
+  items: {
+    product: Product;
+    quantity: number;
   }[];
+  total: number;
+  date: string;
+  status: string;
+};
+
+
+function Orders(){
+
+const { orders } = useOutletContext<{
+  orders: Order[];
 }>();
-const totalPrice = cart.reduce(
-  (total, item) => total + item.product.price * item.quantity,
-  0
-);
+
+
 return(
+<section className="max-w-5xl mx-auto px-8 py-10">
 
-    <section className="max-w-5xl mx-auto px-8 py-10">
-            <h1 className="text-3xl text-white  mb-8 text-right"> سفارش شما</h1>
-<div className="grid gap-4">
+<h1 className="text-3xl text-white mb-8 text-right">
+  سفارشات شما
+</h1>
+
+
+{orders.length === 0 ? (
+
+<div className="text-center text-gray-400 py-20">
+  هنوز سفارشی ثبت نشده است.
+</div>
+
+) : (
+
+<div className="grid gap-6">
+
 {
-  cart.map((item)=>(
-    <div
-      key={item.product.id}
-      className="
-        bg-zinc-900
-        border
-        border-zinc-800
-        rounded-2xl
-        p-4
-        flex
-        items-center
-        gap-4
-        rtl
-      "
-    >
+orders.map((order)=>(
 
-      <img
-        src={item.product.img}
-        alt={item.product.name}
-        className="w-24 h-24 rounded-xl object-cover"
-      />
+<div
+key={order.id}
+className="
+bg-zinc-900
+border
+border-zinc-800
+rounded-2xl
+p-6
+"
+>
 
-      <div>
-        <h2 className="text-xl text-white">
-          {item.product.name}
-        </h2>
 
-        <p className="text-gray-400">
-          تعداد: {item.quantity}
-        </p>
+<div className="flex justify-between mb-4">
 
-      </div>
+<h2 className="text-yellow-500 text-xl">
+سفارش #{order.id}
+</h2>
 
-    </div>
-  ))
+<span className="text-gray-400">
+{order.date}
+<div className="mt-3">
+  <span className="
+    px-3
+    py-1
+    rounded-full
+    text-sm
+    bg-yellow-500
+    text-black
+  ">
+    🟡 {order.status}
+  </span>
+</div>
+</span>
+
+
+</div>
+
+
+{
+order.items.map((item)=>(
+
+<div
+key={item.product.id}
+className="
+flex
+items-center
+gap-4
+border-b
+border-zinc-800
+py-3
+"
+>
+
+<img
+src={item.product.img}
+alt={item.product.name}
+className="
+w-20
+h-20
+rounded-xl
+object-cover
+"
+/>
+
+
+<div className="text-right">
+
+<h3 className="text-white text-lg">
+{item.product.name}
+</h3>
+
+<p className="text-gray-400">
+تعداد: {item.quantity}
+</p>
+
+</div>
+
+
+</div>
+
+))
 }
-</div>
-<div className="mt-8 text-right text-xl text-white">
-  مجموع سفارش:
-  {totalPrice.toLocaleString()} تومان
+
+
+<div className="mt-5 text-right text-xl text-yellow-500">
+مجموع:
+{order.total.toLocaleString()} تومان
 </div>
 
-    </section>
-    )}
 
+</div>
+
+))
+}
+
+</div>
+
+
+)}
+
+</section>
+)
+
+}
 
 
 export default Orders;

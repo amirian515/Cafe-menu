@@ -2,6 +2,7 @@ import type {Product} from "../home/ProductCard";
 import CartItem from "./CartItem";
 import { useMemo } from "react";
 type CartProps = {
+  placeOrder :()=>void
   toggleCart: () => void;
   items: {
     product: Product;
@@ -20,6 +21,7 @@ function Cart({
   removeFromCart,
   increaseQuantity,
   decreaseQuantity,
+  placeOrder,
 }: CartProps) {
   const totalPrice = useMemo(()=>{
     return items.reduce((sum , item)=> sum +item.product.price *item.quantity,0 );
@@ -39,6 +41,19 @@ function Cart({
             <div className=" flex justify-between items-center p-4 border-t border-r-zinc-700 bg-zinc-800 ">
               <span className="text-xl font-bold text-yellow-500">{totalPrice.toLocaleString()}تومان</span>
               <span className="text-lg font-bold text-white">مجموع کل</span>
+              <button
+                onClick={placeOrder}
+                className="
+                  bg-yellow-500
+                  text-black
+                  px-5
+                  py-2
+                  rounded-xl
+                  font-bold
+                "
+              >
+                ثبت سفارش
+              </button>
             </div>
            )}
         </aside>

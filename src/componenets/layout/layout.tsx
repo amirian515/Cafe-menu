@@ -14,6 +14,8 @@ const {
   removeFromCart,
   increaseQuantity,
   decreaseQuantity,
+  placeOrder,
+  orders,
 } = useCart();
 
 function toggleCart() {
@@ -33,12 +35,13 @@ return(
     removeFromCart={removeFromCart}
     increaseQuantity={increaseQuantity}
     decreaseQuantity={decreaseQuantity}
+    placeOrder={placeOrder}
   />
 )}
 
     <main className="flex-1">
 
-        <Outlet context={{addToCart , cart}} />
+        <Outlet context={{addToCart , cart , orders}} />
 
     </main>
 
