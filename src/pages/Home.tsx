@@ -3,7 +3,6 @@ import Categories from "../componenets/home/Categories";
 import ProductGrid from "../componenets/home/ProductGrid";
 import type { Product } from "../componenets/home/ProductCard";
 import { useOutletContext } from "react-router-dom";
-
 import { products } from "../data/products";
 import { useState , useEffect } from "react";
 function Home(){

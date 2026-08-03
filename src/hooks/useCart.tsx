@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import type { Product } from "../componenets/home/ProductCard";
+// import { json } from "stream/consumers";
+// import { stringify } from "querystring";
 
 
 export function useCart(){
 
 const [cart,setCart] = useState<
 {product: Product; quantity:number}[]
->([]);
+>(()=>{
+  const savedCart = localStorage.getItem("cart");
+  return savedCart === null
+  ? []
+  :JSON.parse(savedCart)
+});
 function addToCart(product:Product){
   const existing = cart.find(
     (item)=>item.product.id === product.id);
@@ -61,6 +68,9 @@ function decreaseQuantity (productId :number){
 .filter((item)=> item.quantity >0)
   )
 }
+useEffect(()=>{
+  localStorage.setItem("cart" , JSON.stringify(cart));},
+  [cart])
 
 return {
 cart,
