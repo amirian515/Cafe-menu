@@ -38,7 +38,7 @@ return(
 
     <main className="flex-1">
 
-        <Outlet context={{addToCart }} />
+        <Outlet context={{addToCart , cart}} />
 
     </main>
 
