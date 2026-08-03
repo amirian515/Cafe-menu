@@ -37,8 +37,8 @@ function addToCart(product:Product){
 }
 function removeFromCart(id:number){
 
-  setCart(
-    cart.filter(
+  setCart((prev)=>
+      prev.filter(
       (item)=> item.product.id !== id
     )
   );
