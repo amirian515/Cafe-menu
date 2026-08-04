@@ -1,11 +1,11 @@
 import { useState , useEffect } from "react";
 import type { Product } from "../componenets/home/ProductCard";
-type CartItem = {
+ export type CartItem = {
   product: Product;
   quantity: number;
 };
 
-type Order = {
+ export type Order = {
   id: number;
   items: CartItem[];
   total: number;
