@@ -5,6 +5,7 @@ import Menu from "./pages/Menu";
 import Orders from "./pages/Orders";
 import Profile from "./pages/Profile";
 import Layout from "./componenets/layout/layout";
+import Admin from "./pages/Admin";
 
 function App() {
 
@@ -16,10 +17,11 @@ function App() {
       <main className="flex-1">
         <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/"  index element={<Home/>} />
+          <Route  index element={<Home/>} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/Orders" element={<Orders />} />
+          <Route path="/orders" element={<Orders />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/admin" element={<Admin/>}></Route>
         </Route>
         </Routes>
 

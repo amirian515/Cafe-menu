@@ -71,7 +71,7 @@ const lastOrder = orders[orders.length-1] ;
                         <div  className=" w-full bg-zinc-900 rounded-2xl p-6  ">
                             {lastOrder.items.map((item)=>
                             <div key={item.product.id}  className="flex justify-between items-center border-b border-zinc-700 mb-3 pb-3 last:border-none">
-                                <p className="text-yellow-400 rtl"> {item.product.price.toLocaleString()} تومان</p>
+                                <p className="text-yellow-400 rtl"> {(item.product.price * item.quantity).toLocaleString()} تومان</p>
                                 <div className="text-right">
                                     <p>{item.product.name}</p>
                                     <p>{item.quantity}  : تعداد </p>
@@ -82,7 +82,7 @@ const lastOrder = orders[orders.length-1] ;
 
                             )}
                            <div className="text-right pt-5 flex  justify-between ">
-                            <p className="text-yellow-400 font-bold pt-5 dir-rtl ">  مجموع : {lastOrder.total}</p>
+                            <p className="text-yellow-400 font-bold pt-5  ">  مجموع : {lastOrder.total.toLocaleString()}</p>
                             <div>
                             <p>{lastOrder.date}تاریخ سفارش</p>
                             <p>  وضعیت  : {lastOrder.status}</p>
