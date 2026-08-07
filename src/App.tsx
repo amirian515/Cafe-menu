@@ -6,6 +6,9 @@ import Orders from "./pages/Orders";
 import Profile from "./pages/Profile";
 import Layout from "./componenets/layout/layout";
 import Admin from "./pages/Admin";
+import AdminLayout from "./componenets/layout/AdminLayout";
+import AdminOrders from "./pages/AdminOrders";
+import AdminProducts from "./pages/AdminProducts";
 
 function App() {
 
@@ -18,10 +21,14 @@ function App() {
         <Routes>
         <Route path="/" element={<Layout />}>
           <Route  index element={<Home/>} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/admin" element={<Admin/>}></Route>
+          <Route path="menu" element={<Menu />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
+        <Route path="admin" element={<AdminLayout />}>
+            <Route index element={<Admin />} />
+              <Route path="orders" element={<AdminOrders />} />
+              <Route path="products" element={<AdminProducts />} />
         </Route>
         </Routes>
 
