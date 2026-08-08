@@ -11,9 +11,9 @@ function Sidebar(){
             </h2>
 
 
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4 text-right">
 
-                <NavLink to="/admin">
+                <NavLink to="/admin" >
                     داشبورد
                 </NavLink>
 
