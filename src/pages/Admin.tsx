@@ -50,10 +50,10 @@ const lastOrders = orders.slice(orders.length-5)
                         className={`w-1/4 ${
                           order.status === "در انتظار بررسی"
                             ? "text-yellow-300"
-                            : order.status === "تکمیل شده"
-                              ? "text-green-400"
-                              : order.status === "لغو شده"
-                                ? "text-red-400"
+                            : order.status ==="در حال آماده سازی"
+                              ? "text-blue-400"
+                              : order.status === " آماده تحویل"
+                                ? "text-grean-400"
                                 : "text-white"
                         }`}
                       >
