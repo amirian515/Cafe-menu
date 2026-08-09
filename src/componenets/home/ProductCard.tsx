@@ -4,6 +4,7 @@
   desc: string;
   price: number;
   img: string;
+  category: string;
 };
 
 function ProductCard({ product ,addToCart }: { product: Product ; addToCart: (product: Product) => void }) {
