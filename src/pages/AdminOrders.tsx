@@ -76,7 +76,7 @@ const [selectedOrderId, setSelectedOrderId] = useState<number | null>(null);    
     {selectedOrderId === order.id && (
       <div className="bg-zinc-900 p-5">
             {order.items.map((item) => (
-            <p className="text-right py-1" key={item.product.id}>
+            <p className="text-right py-2" key={item.product.id}>
                 {item.product.name} × {item.quantity}
             </p>
         ))}
