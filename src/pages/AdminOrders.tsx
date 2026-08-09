@@ -3,8 +3,9 @@ import type { Order } from "../hooks/useCart";
 
 
 function AdminOrders(){
-    const {orders}=useOutletContext<{
+    const {orders , updateOrderStatus}=useOutletContext<{
         orders:Order[];
+        updateOrderStatus:(id :number)=>void
     }>();
 const sortedOrders = [...orders].sort((a, b) => {
   const dateA = a.date.split("/").map(Number);
@@ -29,11 +30,12 @@ const sortedOrders = [...orders].sort((a, b) => {
   {sortedOrders.map((order)=>
                   <div key={order.id} className=" flex justify-between py-5 text-right border-b border-zinc-800
                    hover:bg-zinc-800 transition duration-500">
+                    <button className=" bg-zinc-700 rounded-2xl p-2" onClick={() => updateOrderStatus(order.id)} >تغییر وضعیت</button>
                       <p
                         className={`w-1/4 ${
                           order.status === "در انتظار بررسی"
                             ? "text-yellow-300"
-                            : order.status === " در حال آماده سازس"
+                            : order.status === "در حال آماده سازی"
                               ? "text-blue-400"
                               : order.status === "آماده تحویل"
                                 ? "text-green-400"

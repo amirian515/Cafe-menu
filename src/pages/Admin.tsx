@@ -53,7 +53,7 @@ const lastOrders = orders.slice(orders.length-5)
                             : order.status ==="در حال آماده سازی"
                               ? "text-blue-400"
                               : order.status === " آماده تحویل"
-                                ? "text-grean-400"
+                                ? "text-green-400"
                                 : "text-white"
                         }`}
                       >

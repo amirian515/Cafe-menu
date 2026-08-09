@@ -4,6 +4,11 @@ import type { Product } from "../componenets/home/ProductCard";
   product: Product;
   quantity: number;
 };
+export type OrderStatus =
+  | "در انتظار بررسی"
+  | "در حال آماده سازی"
+  | "آماده تحویل"
+  | " تحویل شده";
 
  export type Order = {
   id: number;
@@ -24,9 +29,9 @@ CartItem[]
   :JSON.parse(savedCart)
 });
 const [orders,setOrders] = useState<
-  
+
    Order[]
-  
+
 >(() => {
 
   const savedOrders = localStorage.getItem("orders");
@@ -36,6 +41,7 @@ const [orders,setOrders] = useState<
     : JSON.parse(savedOrders);
 
 });
+
 function addToCart(product: Product) {
 
   setCart((prev) => {
@@ -114,6 +120,8 @@ function placeOrder(){
   };
 
 
+
+
   setOrders((prev)=>[
     ...prev,
     newOrder
@@ -133,6 +141,27 @@ useEffect(()=>{
   );
 
 },[orders])
+function updateOrderStatus(id: number) {
+  console.log("clicked order:", id);
+  setOrders((prev) => {
+    return prev.map((order) =>
+      order.id === id
+        ? {
+            ...order,
+            status:
+              order.status === "در انتظار بررسی"
+                ? "در حال آماده سازی"
+                : order.status === "در حال آماده سازی"
+                  ? "آماده تحویل"
+                  : order.status === "آماده تحویل"
+                  ?"تحویل شده"
+                  :order.status
+          }
+        : order
+    );
+  });
+}
+
 
 
 
@@ -144,5 +173,6 @@ increaseQuantity,
 decreaseQuantity,
 placeOrder,
 orders,
+updateOrderStatus,
 
 };}[]

@@ -62,15 +62,17 @@ p-6
 <span className="text-gray-400">
 {order.date}
 <div className="mt-3">
-  <span className="
-    px-3
-    py-1
-    rounded-full
-    text-sm
-    bg-yellow-500
-    text-black
-  ">
-    🟡 {order.status}
+  <span
+            className={`w-1/4 ${
+            order.status === "در انتظار بررسی"
+            ? "text-yellow-300"
+            : order.status === "در حال آماده سازی"
+            ? "text-blue-400"
+            : order.status === "آماده تحویل"
+            ? "text-green-400"
+            : "text-white"}`}
+>
+     {order.status}
   </span>
 </div>
 </span>
