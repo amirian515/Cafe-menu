@@ -18,6 +18,15 @@ function useProducts() {
       prev.filter((product) => product.id !== id)
     );
   }
+  function updateProduct(updatedProduct: Product) {
+  setProductList((prev) =>
+    prev.map((product) =>
+      product.id === updatedProduct.id
+        ? updatedProduct
+        : product
+    )
+  );
+}
 
   useEffect(() => {
     localStorage.setItem(
@@ -29,7 +38,9 @@ function useProducts() {
   return {
     productList,
     deleteProduct,
+    updateProduct
   };
+  
 }
 
 export default useProducts;

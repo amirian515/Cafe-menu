@@ -1,7 +1,9 @@
 import { useOutletContext } from "react-router-dom";
 import type { Order } from "../hooks/useCart";
 import { products } from "../data/products";
+import useProducts from "../hooks/useProducts";
 function Admin() {
+  const { productList } = useProducts();
   const { orders } = useOutletContext<{
     orders: Order[];
 }>();
@@ -27,7 +29,7 @@ const lastOrders = orders.slice(orders.length-5)
         </div>
         <div className="flex flex-col items-center gap-5 bg-zinc-900 p-5 rounded-3xl w-full">
           <span>محصولات</span>
-          <span>{products.length}</span>
+          <span>{productList.length}</span>
           <span>محصول</span>
         </div>
       </div>
