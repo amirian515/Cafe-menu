@@ -17,8 +17,8 @@ function AdminProducts() {
       </h1>
 
 {editingProduct && editForm && (
-  <div className=" fixed  inset-0 bg-black/60  backdrop-blur-sm  rounded-2xl flex justify-center items-center flex-col ">
-    
+    <div className=" fixed  inset-0 bg-black/60  backdrop-blur-sm  rounded-2xl flex justify-center items-center flex-col ">
+         <div className="w-full max-w-lg bg-zinc-900 border border-zinc-700 rounded-2xl p-6 shadow-2xl">
                 <button
                 className="text-3xl text-zinc-400 hover:text-red-700"
             onClick={() => {
@@ -100,7 +100,7 @@ function AdminProducts() {
             img: e.target.value,
           })
         }
-        className="bg-zinc-800 rounded-xl p-3 w-100"
+        className="bg-zinc-800 rounded-xl p-3 "
         placeholder="آدرس تصویر"
       />
       <button
@@ -117,6 +117,8 @@ function AdminProducts() {
 
     </div>
   </div>
+    </div>
+
 )}
 
       <div className="grid grid-cols-3 gap-5">
