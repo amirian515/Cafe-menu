@@ -3,10 +3,11 @@ import Categories from "../componenets/home/Categories";
 import ProductGrid from "../componenets/home/ProductGrid";
 import type { Product } from "../componenets/home/ProductCard";
 import { useOutletContext } from "react-router-dom";
-import { products } from "../data/products";
+import useProducts from "../hooks/useProducts";
 import { useState , useEffect } from "react";
 function Home(){
 const [search, setSearch] = useState("");
+const { productList } = useProducts();
 
 const { addToCart  } = useOutletContext<{
   addToCart: (product: Product)=>void;
@@ -18,7 +19,7 @@ const [visibaleProducts , setVisibaleProducts] = useState(4);
     },
     [selectedCategory]);
 
-const filteredProducts = products.filter((product) => {
+const filteredProducts = productList.filter((product) => {
   const matchCategory =
     selectedCategory === "همه" ||
     product.category === selectedCategory;
