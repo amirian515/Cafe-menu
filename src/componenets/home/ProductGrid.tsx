@@ -3,7 +3,7 @@ import type { Product } from "./ProductCard";
 function ProductGrid({ addToCart , products}: { addToCart: (product: Product) => void ; products:Product[]; }){
 
     return(
-        <section className="grid grid-cols-4 gap-3 px-10">
+        <section className="grid grid-cols-4 gap-5 px-10 mb-5">
                     { products.length === 0 ? (
 
                 <div className="text-center text-white col-span-4 flex flex-col items-center justify-center  mb-50 mt-20">

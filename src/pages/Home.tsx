@@ -52,7 +52,8 @@ return(
 
    <ProductGrid addToCart={addToCart} products={filteredProducts.slice(0,visibaleProducts)}/>
   {visibaleProducts<filteredProducts.length &&(
-   <button className=" max-w-md mx-auto block my-10 bg-yellow-400 border border-amber-500 text-black rounded-3xl py-2 bold px-10"
+   <button className=" max-w-md mx-auto block my-10 bg-yellow-400 border border-amber-500 text-black rounded-3xl py-2 bold px-10
+   hover:bg-amber-300 hover:scale-105 transition duration-200 hover:border-white"
    onClick={()=>{setVisibaleProducts((prev)=>prev+4)}}>
     مشاهده بیشتر
    </button>)}

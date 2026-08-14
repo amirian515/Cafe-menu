@@ -27,6 +27,12 @@ function useProducts() {
     )
   );
 }
+function addProduct(product :Product){
+  setProductList((prev) =>
+  [...prev , product]
+  )
+
+}
 
   useEffect(() => {
     localStorage.setItem(
@@ -38,9 +44,10 @@ function useProducts() {
   return {
     productList,
     deleteProduct,
-    updateProduct
+    updateProduct,
+    addProduct
   };
-  
+
 }
 
 export default useProducts;

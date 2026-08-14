@@ -13,17 +13,34 @@ function Sidebar(){
 
             <nav className="flex flex-col gap-4 text-right">
 
-                <NavLink to="/admin" >
+                <NavLink className={({isActive})=>
+                isActive
+                ? "text-yellow-500 font-bold"
+                : "text-white hover:text-yellow-400"
+                }
+                 to="/admin" >
                     داشبورد
                 </NavLink>
 
 
-                <NavLink to="/admin/orders">
+                <NavLink className={({isActive})=>
+                isActive
+                ? "text-yellow-500 font-bold"
+                : "text-white hover:text-yellow-400"
+                }
+                
+                to="/admin/orders">
                     سفارش‌ها
                 </NavLink>
 
 
-                <NavLink to="/admin/products">
+                <NavLink className={({isActive})=>
+                isActive
+                ? "text-yellow-500 font-bold"
+                : "text-white hover:text-yellow-400"
+                }
+                
+                to="/admin/products">
                     محصولات
                 </NavLink>
 

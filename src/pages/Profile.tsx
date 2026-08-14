@@ -14,7 +14,7 @@ const lastOrder = orders[orders.length-1] ;
 
     return(
 
-        <section className="flex flex-col w-full px-10">
+        <section className="flex flex-col w-full px-10 mb-5">
             <h1  className="text-3xl text-yellow-500 mt-10 py-5 border-b border-zinc-700 w-full text-right">پروفایل</h1>
             <div className=" flex flex-col text-right gap-3.5 my-5  border-b border-zinc-700 w-full pb-5">
 

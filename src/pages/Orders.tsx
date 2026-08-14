@@ -55,8 +55,9 @@ p-6
 
 <div className="flex justify-between mb-4">
 
-<h2 className="text-yellow-500 text-xl">
-سفارش #{order.id}
+<h2 className="text-yellow-500 text-xl text-ltr">
+شماره سفارش :
+{order.id % 10000}
 </h2>
 
 <span className="text-gray-400">
