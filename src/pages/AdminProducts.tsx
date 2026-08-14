@@ -26,6 +26,17 @@ const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
   })
   const [deletingProduct, setDeletingProduct] =
   useState<Product | null>(null);
+  const maxId =Math.max(
+    ...productList.map((product) =>
+      product.id
+    )
+  )
+  const newId = maxId +1;
+  const newProduct = {
+  ...addForm,
+  id :newId
+};
+
 
   return (
     <section className="p-10">
@@ -44,7 +55,7 @@ const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
   <h2 className="mb-2 p-4 rounded-2xl bg-red-800">آیا محصول حذف شود؟</h2>
     <div className=" flex gap-2 justify-center items-center  ">
     <button  className="bg-zinc-700 px-5 py-2 rounded-3xl hover:bg-zinc-900 hover:scale-120 transition duration-200" onClick={()=>setIsDeleteModalOpen(false)}>خیر</button>
-    <button className="bg-zinc-700 px-5 py-2 rounded-3xl hover:bg-zinc-900 hover:scale-120 transition duration-200" 
+    <button className="bg-zinc-700 px-5 py-2 rounded-3xl hover:bg-zinc-900 hover:scale-120 transition duration-200"
     onClick={()=> {if (deletingProduct){
       deleteProduct(deletingProduct.id);
       setIsDeleteModalOpen(false);
@@ -127,7 +138,14 @@ const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
         placeholder="آدرس تصویر"
       />
       <button className="bg-blue-900 p-5 rounded-2xl hover:bg-blue-700"
-      onClick={()=>addProduct}>ثبت محصول جدید</button>
+      onClick={()=> {addProduct(newProduct) ; setIsAddModalOpen(false); setAddForm({
+          id: 0,
+          name: "",
+          desc: "",
+          price: 0,
+          img: "",
+          category: "",
+        })}}>ثبت محصول جدید</button>
     </div>
   </div>
 )}
