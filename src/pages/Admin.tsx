@@ -1,6 +1,5 @@
 import { useOutletContext } from "react-router-dom";
 import type { Order } from "../hooks/useCart";
-import { products } from "../data/products";
 import useProducts from "../hooks/useProducts";
 function Admin() {
   const { productList } = useProducts();

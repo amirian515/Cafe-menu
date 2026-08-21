@@ -20,8 +20,8 @@ const sortedOrders = [...orders].sort((a, b) => {
 });
 const [selectedOrderId, setSelectedOrderId] = useState<number | null>(null);    return(
 <section className="my-10 mx-10">
-  <h1  className="text-3xl text-yellow-400  text-right pb-10 border-b border-b-zinc-700">مدیریت سفارش‌ها</h1>
-    <div className="flex justify-between py-5 border-b border-zinc-700 text-right">
+  <h1  className=" md:text-3xl text-xl text-yellow-400  text-right pb-10 border-b border-b-zinc-700">مدیریت سفارش‌ها</h1>
+    <div className="flex justify-between py-5 border-b border-zinc-700 text-right text-sm md:text-base">
     <p className="w-1/4">وضعیت</p>
     <p className="w-1/4">مبلغ</p>
     <p className="w-1/4">تاریخ</p>
@@ -38,10 +38,10 @@ const [selectedOrderId, setSelectedOrderId] = useState<number | null>(null);    
       : order.id
   )
 }
-      className="flex justify-between py-5 text-right border-b border-zinc-800 hover:bg-zinc-800 transition duration-500"
+      className="flex justify-between py-5 gap-3  text-right border-b border-zinc-800 hover:bg-zinc-800 transition duration-500 text-[12px] md:text-base"
     >
       <button
-        className="bg-zinc-700 rounded-2xl p-2"
+        className="bg-zinc-700 rounded-2xl p-1"
         onClick={() => updateOrderStatus(order.id)}
       >
         تغییر وضعیت
@@ -76,7 +76,7 @@ const [selectedOrderId, setSelectedOrderId] = useState<number | null>(null);    
     {selectedOrderId === order.id && (
       <div className="bg-zinc-900 p-5">
             {order.items.map((item) => (
-            <p className="text-right py-2" key={item.product.id}>
+            <p className="text-right py-2 text-xs md:text-ba" key={item.product.id}>
                 {item.product.name} × {item.quantity}
             </p>
         ))}
