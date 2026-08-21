@@ -14,28 +14,28 @@ const lastOrders = orders.slice(orders.length-5)
     <section className="my-10 mx-10">
 
       <div className="text-right  pb-3">
-        <h1 className="text-3xl mb-5 text-yellow-500">داشبورد </h1>
+        <h1 className=" md:text-3xl mb-5 text-yellow-500">داشبورد </h1>
       </div>
-      <div className="flex justify-between items-center py-10  gap-5 border-b border-b-zinc-700">
-        <div className="flex flex-col items-center gap-5 bg-zinc-900 p-5 rounded-3xl w-full">
-           <span>تعداد سفارش‌ها</span>
-           <span>{orders.length}</span>
-           <span>سفارش‌</span>
+      <div className="flex justify-between items-center py-10  gap-3 md:gap-5 border-b border-b-zinc-700">
+        <div className="flex flex-col items-center gap-2 md:gap-5 bg-zinc-900 p-5 rounded-3xl w-full">
+           <span className="text-sm md:text-xl text-center">تعداد سفارش‌ها</span>
+           <span className="text-sm md:text-xl">{orders.length}</span>
+           <span className="text-sm md:text-xl">سفارش‌</span>
         </div>
         <div className="flex flex-col items-center gap-5 bg-zinc-900  p-5 rounded-3xl w-full">
-          <span>فروش کل</span>
-          <span>{totalSpent.toLocaleString()}</span>
-          <span> تومان</span>
+          <span className="text-sm md:text-xl">فروش کل</span>
+          <span className="text-sm md:text-xl">{totalSpent.toLocaleString()}</span>
+          <span className="text-sm md:text-xl"> تومان</span>
         </div>
         <div className="flex flex-col items-center gap-5 bg-zinc-900 p-5 rounded-3xl w-full">
-          <span>محصولات</span>
-          <span>{productList.length}</span>
-          <span>محصول</span>
+          <span className="text-sm md:text-xl">محصولات</span>
+          <span className="text-sm md:text-xl">{productList.length}</span>
+          <span className="text-sm md:text-xl">محصول</span>
         </div>
       </div>
       <div >
         <h3 className="text-2xl text-yellow-500 p-5 text-center">آخرین سفارش‌ها</h3>
-        <div className=" flex justify-between py-5  border-b border-b-zinc-700 text-right">
+        <div className=" flex justify-between py-5  border-b border-b-zinc-700 text-right text-sm md:text-base">
           <p className="w-1/4"> وضعیت</p>
           <p className="w-1/4"> مبلغ</p>
           <p className="w-1/4"> تاریخ</p>
@@ -46,7 +46,7 @@ const lastOrders = orders.slice(orders.length-5)
         :
           <div >
               {lastOrders.map((order) => (
-                  <div key={order.id} className=" flex justify-between py-5 text-right border-b border-zinc-800
+                  <div key={order.id} className=" flex justify-between py-5 text-right border-b border-zinc-800 text-xs md:text-base
                    hover:bg-zinc-800 transition duration-500">
                       <p
                         className={`w-1/4 ${
