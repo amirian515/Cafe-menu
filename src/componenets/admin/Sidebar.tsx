@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 function Sidebar(){
 
     return(
-        <aside className="w-64 min-h-screen bg-zinc-900 p-5 text-white  ">
+        <aside className="w-64 min-h-screen bg-zinc-900 p-5 text-white  hidden md:flex flex-col">
 
-            <h2 className="text-2xl text-yellow-400 mb-8 text-center">
+            <h2 className=" text-2xl text-yellow-400 mb-8 text-center">
                 پنل مدیریت
             </h2>
 
@@ -25,10 +25,9 @@ function Sidebar(){
 
                 <NavLink className={({isActive})=>
                 isActive
-                ? "text-yellow-500 font-bold"
+                ? "text-yellow-500  lg:font-bold"
                 : "text-white hover:text-yellow-400"
                 }
-                
                 to="/admin/orders">
                     سفارش‌ها
                 </NavLink>

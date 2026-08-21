@@ -13,30 +13,30 @@ function Navbar({ cartCount ,toggleCart }: { cartCount: number; toggleCart :()=>
                             ? "text-yellow-500 font-bold"
                             : "text-white hover:text-yellow-400"
                         } to ="/">
-                    <button>خانه</button>
+                    <button className="hover:scale-125 transition duration-200">خانه</button>
                     </NavLink>
                     <NavLink to ="/Menu"className= {({ isActive }) =>
                                 isActive
                                 ? "text-yellow-500 font-bold"
                                 : "text-white hover:text-yellow-400"
                             }>
-                    <button>منو</button>
+                    <button className="hover:scale-125 transition duration-200">منو</button>
                     </NavLink>
                     <NavLink to ="/Orders"  className={({ isActive }) =>
                                 isActive
                                 ? "text-yellow-500 font-bold"
                                 : "text-white hover:text-yellow-400"
                             }>
-                    <button>سفارشات</button>
+                    <button className="hover:scale-125 transition duration-200">سفارشات</button>
                     </NavLink>
                     <NavLink className={({ isActive }) =>
                             isActive
                             ? "text-yellow-500 font-bold"
                             : "text-white hover:text-yellow-400"
                         } to="/profile">
-                        <button>👤</button>
+                        <button className="hover:scale-150 transition duration-200">👤</button>
                     </NavLink>
-                    <button onClick={toggleCart} className="relative">
+                    <button onClick={toggleCart} className="relative hover:scale-125 transition duration-200">
   🛒
                     <span className="absolute -top-2 -left-2 bg-yellow-500 text-black text-xs w-5 h-5 rounded-full flex items-center justify-center">
                         {cartCount}
