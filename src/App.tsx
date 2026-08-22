@@ -17,7 +17,7 @@ function App() {
     <div className="min-h-screen  bg-black text-white flex flex-col">
 
 
-      <main className="flex-1 w-full">
+      <main className="flex-1 ">
         <Routes>
         <Route path="/" element={<Layout />}>
           <Route  index element={<Home/>} />

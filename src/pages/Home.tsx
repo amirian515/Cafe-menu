@@ -47,7 +47,7 @@ return(
   placeholder="جستجوی محصول . . . "
   value={search}
   onChange={(e) => setSearch(e.target.value)}
-  className="w-full max-w-md mx-auto block mb-8 px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 outline-none placeholder:text-right"
+  className="md:w-full max-w-md mx-auto block mb-8 px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 outline-none placeholder:text-right"
 />
 
    <ProductGrid addToCart={addToCart} products={filteredProducts.slice(0,visibaleProducts)}/>
