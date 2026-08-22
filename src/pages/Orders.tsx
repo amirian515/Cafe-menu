@@ -23,7 +23,7 @@ const { orders } = useOutletContext<{
 return(
 <section className="max-w-5xl mx-auto px-8 py-10">
 
-<h1 className="text-3xl text-white mb-8 text-right">
+<h1 className="text-2xl md:text-3xl text-white mb-4 md:mb-8 text-right">
   سفارشات شما
 </h1>
 
@@ -36,7 +36,7 @@ return(
 
 ) : (
 
-<div className="grid gap-6">
+<div className="grid gap-3 md:gap-6">
 
 {
 orders.map((order)=>(
@@ -55,7 +55,7 @@ p-6
 
 <div className="flex justify-between mb-4">
 
-<h2 className="text-yellow-500 text-xl text-ltr">
+<h2 className="text-yellow-500 text-ltr md:text-xl">
 شماره سفارش :
 {order.id % 10000}
 </h2>
@@ -94,6 +94,7 @@ gap-4
 border-b
 border-zinc-800
 py-3
+justify-between
 "
 >
 
@@ -111,7 +112,7 @@ object-cover
 
 <div className="text-right">
 
-<h3 className="text-white text-lg">
+<h3 className="text-white text-right md:text-lg">
 {item.product.name}
 </h3>
 
@@ -128,9 +129,9 @@ object-cover
 }
 
 
-<div className="mt-5 text-right text-xl text-yellow-500">
-مجموع:
-{order.total.toLocaleString()} تومان
+<div className="mt-5 text-right  md:text-xl text-yellow-500 flex  flex-row-reverse justify-between">
+<span>  : مجموع </span>
+<span>{order.total.toLocaleString()} تومان</span>
 </div>
 
 

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function AdminNavbar() {
   return (
-    <nav className=" sticky bottom-0 flex md:hidden w-full bg-zinc-900 gap-4 justify-center p-4">
+    <nav className=" sticky top-0 flex md:hidden w-full bg-zinc-900 gap-4 justify-center p-4">
 
 
 

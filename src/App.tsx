@@ -14,10 +14,10 @@ function App() {
 
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
+    <div className="min-h-screen  bg-black text-white flex flex-col">
 
 
-      <main className="flex-1">
+      <main className="flex-1 w-full">
         <Routes>
         <Route path="/" element={<Layout />}>
           <Route  index element={<Home/>} />

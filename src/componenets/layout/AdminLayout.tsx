@@ -10,7 +10,7 @@ function AdminLayout() {
 
 <div className="min-h-screen flex flex-row-reverse">
         <Sidebar/>
-    <main className="flex flex-col">
+    <main className="flex flex-col w-full">
         <AdminNavbar/>
         <Outlet context={{orders , updateOrderStatus}} />
 
