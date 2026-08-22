@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 function Navbar({ cartCount ,toggleCart }: { cartCount: number; toggleCart :()=>void;  }){
     return(
-        <header className="h-20 border-b border-zinc-800 bg-black sticky top-0 md:static" >
+        <header className="h-20 border-b border-zinc-800 bg-black sticky top-0 md:static z-50" >
             <div className="max-w-7xl mx-auto h-full px-8 flex items-center justify-between ">
                 <h1 className=" md:text-2xl font-bold text-yellow-500"> Cafe luxe</h1>
                 <nav className="flex items-center md:gap-8 gap-4 text-sm md:text-base">
