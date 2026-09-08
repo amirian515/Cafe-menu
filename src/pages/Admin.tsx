@@ -45,7 +45,7 @@ const lastOrders = orders.slice(orders.length-5)
         :
           <div >
               {lastOrders.map((order) => (
-                  <div key={order.id} className=" flex justify-between py-5 text-right border-b border-zinc-800 text-xs md:text-base
+                  <div key={order._id} className=" flex justify-between py-5 text-right border-b border-zinc-800 text-xs md:text-base
                    hover:bg-zinc-800 transition duration-500">
                       <p
                         className={`w-1/4 ${
@@ -53,7 +53,7 @@ const lastOrders = orders.slice(orders.length-5)
                             ? "text-yellow-300"
                             : order.status ==="در حال آماده سازی"
                               ? "text-blue-400"
-                              : order.status === " آماده تحویل"
+                              : order.status === "آماده تحویل"
                                 ? "text-green-400"
                                 : "text-white"
                         }`}
@@ -62,8 +62,7 @@ const lastOrders = orders.slice(orders.length-5)
                       </p>
                     <p className="w-1/4 " dir="ltr"> <span className="mr-1">تومان</span></p>{order.total.toLocaleString()}
                     <p className="w-1/4">{order.date}</p>
-                    <p className="w-1/4">{ String(order.id % 10000).padStart(4,"0")}</p>
-
+                    <p className="w-1/4">{order._id.slice(-4)}</p>
                   </div>
               ))}
         </div>}

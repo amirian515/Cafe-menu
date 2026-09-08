@@ -1,115 +1,252 @@
-import { useOutletContext } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import type { Order } from "../hooks/useCart";
 
-function Profile(){
-    const { orders } = useOutletContext<{
-    orders: Order[];
-    }>();
-    const totalSpent = orders.reduce(
-  (sum, order) => sum + order.total,
-  0
-);
+type UserProfile = {
+  name: string;
+  username: string;
+  email: string;
+  phone: string;
+  address: string;
+};
 
-const lastOrder = orders[orders.length-1] ;
+function Profile() {
+  const navigate = useNavigate();
 
-    return(
+  const [user, setUser] = useState<UserProfile | null>(null);
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [loading, setLoading] = useState(true);
 
-        <section className="flex flex-col w-full px-10 mb-5">
-            <h1  className="text-3xl text-yellow-500 mt-10 py-5 border-b border-zinc-700 w-full text-right">پروفایل</h1>
-            <div className=" flex flex-col text-right gap-3.5 my-5  border-b border-zinc-700 w-full pb-5">
+  useEffect(() => {
+    async function getProfileData() {
+      try {
+        const token = localStorage.getItem("userToken");
 
-                <div className="flex justify-between">
-                    <span>امیرمهدی</span>
-                    <span > : نام </span>
-                </div>
-                <div className="flex justify-between">
-                    <span>زنجان - پونک </span>
-                    <span> : آدرس</span>
-                </div>
-                <div className="flex justify-between">
-                    <span>09103543572</span>
-                    <span> : شماره تماس </span>
-                </div>
-                <div className="flex justify-between ">
-                    <span>  amir515komak@gmail.com </span>
-                    <span> : ایمیل </span>
-                </div>
-            </div>
-<div className="grid grid-cols-2 gap-5 border-b border-zinc-700 pb-5 w-full">
+        const profileResponse = await fetch(
+          "http://localhost:5000/api/user-auth/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-    <div className="bg-zinc-900 rounded-xl p-5 text-center">
+        if (!profileResponse.ok) {
+          throw new Error("خطا در دریافت اطلاعات کاربر");
+        }
 
-        <h3 className="text-gray-400 mb-2">
+        const profileData = await profileResponse.json();
+
+        setUser(profileData);
+
+        const ordersResponse = await fetch(
+          "http://localhost:5000/api/orders/my-orders",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (!ordersResponse.ok) {
+          throw new Error("خطا در دریافت سفارش‌ها");
+        }
+
+        const ordersData = await ordersResponse.json();
+
+        setOrders(ordersData);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    getProfileData();
+  }, []);
+
+  function handleLogout() {
+    localStorage.removeItem("userToken");
+    navigate("/user-login");
+  }
+
+  const totalSpent = orders.reduce(
+    (sum, order) => sum + order.total,
+    0
+  );
+
+  const lastOrder = orders[0];
+
+  if (loading) {
+    return (
+      <section className="flex justify-center items-center w-full min-h-[60vh]">
+        <p className="text-gray-400">
+          در حال دریافت اطلاعات...
+        </p>
+      </section>
+    );
+  }
+
+  return (
+    <section className="flex flex-col w-full px-10 mb-5">
+
+      <div className="w-full flex justify-end mb-5">
+        <button
+          onClick={handleLogout}
+          className="
+            bg-red-600
+            text-white
+            px-6
+            py-2
+            rounded-xl
+            hover:bg-red-500
+            transition
+          "
+        >
+          خروج از حساب
+        </button>
+      </div>
+
+      <h1 className="text-3xl text-yellow-500 mt-10 py-5 border-b border-zinc-700 w-full text-right">
+        پروفایل
+      </h1>
+
+      <div className="flex flex-col text-right gap-3.5 my-5 border-b border-zinc-700 w-full pb-5">
+
+        <div className="flex justify-between">
+          <span>{user?.name}</span>
+          <span>: نام</span>
+        </div>
+
+        <div className="flex justify-between">
+          <span>{user?.address}</span>
+          <span>: آدرس</span>
+        </div>
+
+        <div className="flex justify-between">
+          <span>{user?.phone}</span>
+          <span>: شماره تماس</span>
+        </div>
+
+        <div className="flex justify-between">
+          <span>{user?.email}</span>
+          <span>: ایمیل</span>
+        </div>
+
+        <div className="flex justify-between">
+          <span>{user?.username}</span>
+          <span>: نام کاربری</span>
+        </div>
+
+      </div>
+
+      <div className="grid grid-cols-2 gap-5 border-b border-zinc-700 pb-5 w-full">
+
+        <div className="bg-zinc-900 rounded-xl p-5 text-center">
+
+          <h3 className="text-gray-400 mb-2">
             تعداد سفارش
-        </h3>
+          </h3>
 
-        <p className="text-3xl text-yellow-500 font-bold">
+          <p className="text-3xl text-yellow-500 font-bold">
             {orders.length}
-        </p>
+          </p>
 
-    </div>
+        </div>
 
-    <div className="bg-zinc-900 rounded-xl p-5 text-center">
+        <div className="bg-zinc-900 rounded-xl p-5 text-center">
 
-        <h3 className="text-gray-400 mb-2">
+          <h3 className="text-gray-400 mb-2">
             مجموع خرید
-        </h3>
+          </h3>
 
-        <p className="text-2xl text-yellow-500 font-bold">
+          <p className="text-2xl text-yellow-500 font-bold">
             {totalSpent.toLocaleString()} تومان
-        </p>
+          </p>
 
-    </div>
+        </div>
 
-</div>
+      </div>
 
-            <div className="w-full">
-                <h1 className="text-2xl text-yellow-400 my-5 text-right"> آخرین سفارش</h1>
-                <div className="w-full">
-                {
-                    lastOrder ? (
-                        <div  className=" w-full bg-zinc-900 rounded-2xl p-6  ">
-                            {lastOrder.items.map((item)=>
-                            <div key={item.product.id}  className="flex justify-between items-center border-b border-zinc-700 mb-3 pb-3 last:border-none">
-                                <p className="text-yellow-400 rtl"> {(item.product.price * item.quantity).toLocaleString()} تومان</p>
-                                <div className="text-right">
-                                    <p>{item.product.name}</p>
-                                    <p>{item.quantity}  : تعداد </p>
-                                </div>
-                                <img  src={item.product.img} alt={item.product.name} className="w-20 h-20 rounded-2xl object-cover" />
+      <div className="w-full">
 
-                            </div>
+        <h1 className="text-2xl text-yellow-400 my-5 text-right">
+          آخرین سفارش
+        </h1>
 
-                            )}
-                           <div className="text-right pt-5 flex  justify-between ">
-                            <p className="text-yellow-400 font-bold pt-5  ">  مجموع : {lastOrder.total.toLocaleString()}</p>
-                            <div>
-                            <p>{lastOrder.date}تاریخ سفارش</p>
-                            <p>  وضعیت  : {lastOrder.status}</p>
-                            </div>
+        <div className="w-full">
 
-                            </div>
+          {lastOrder ? (
 
-                        </div>
+            <div className="w-full bg-zinc-900 rounded-2xl p-6">
 
-                    ) : (
+              {lastOrder.items.map((item, index) => (
+
+                <div
+                  key={`${lastOrder._id}-${index}`}
+                  className="flex justify-between items-center border-b border-zinc-700 mb-3 pb-3 last:border-none"
+                >
+
+                  <p className="text-yellow-400 rtl">
+                    {(item.product.price * item.quantity).toLocaleString()} تومان
+                  </p>
+
+                  <div className="text-right">
+
                     <p>
-                        سفارشی ثبت نشده
+                      {item.product.name}
                     </p>
-                    )
-                }
+
+                    <p>
+                      {item.quantity} : تعداد
+                    </p>
+
+                  </div>
+
+                  <img
+                    src={item.product.img}
+                    alt={item.product.name}
+                    className="w-20 h-20 rounded-2xl object-cover"
+                  />
+
                 </div>
+
+              ))}
+
+              <div className="text-right pt-5 flex justify-between">
+
+                <p className="text-yellow-400 font-bold pt-5">
+                  مجموع : {lastOrder.total.toLocaleString()} تومان
+                </p>
+
+                <div>
+                  <p>
+                    {lastOrder.date} : تاریخ سفارش
+                  </p>
+
+                  <p>
+                    وضعیت : {lastOrder.status}
+                  </p>
+                </div>
+
+              </div>
+
             </div>
 
+          ) : (
 
-        </section>
+            <p className="text-gray-400">
+              سفارشی ثبت نشده
+            </p>
 
+          )}
 
+        </div>
 
+      </div>
 
-    )
-
+    </section>
+  );
 }
-
 
 export default Profile;

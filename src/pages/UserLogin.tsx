@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function UserLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -19,7 +18,7 @@ function Login() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/login",
+        "http://localhost:5000/api/user-auth/login",
         {
           method: "POST",
           headers: {
@@ -39,50 +38,21 @@ function Login() {
         return;
       }
 
-      // ذخیره Token
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("userToken", data.token);
 
-      // ورود به پنل ادمین
-      navigate("/admin");
-
+      navigate("/");
     } catch (error) {
       console.error(error);
-
       setError("خطا در اتصال به سرور");
     }
   }
 
   return (
-    <div
-      className="
-        min-h-screen
-        bg-black
-        text-white
-        flex
-        items-center
-        justify-center
-        px-5
-      "
-    >
-
-      <div
-        className="
-          w-full
-          max-w-md
-          bg-zinc-900
-          border
-          border-zinc-800
-          rounded-2xl
-          p-6
-          md:p-8
-        "
-      >
-
+    <div className="min-h-screen bg-black text-white flex items-center justify-center px-5">
+      <div className="w-full max-w-md bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8">
         <h1 className="text-2xl text-yellow-400 font-bold text-center mb-8">
-          ورود مدیر
+          ورود کاربر
         </h1>
-
-        {/* Username */}
 
         <input
           dir="rtl"
@@ -90,20 +60,8 @@ function Login() {
           placeholder="نام کاربری"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="
-            w-full
-            bg-zinc-800
-            rounded-xl
-            p-3
-            mb-4
-            text-right
-            outline-none
-            focus:ring-2
-            focus:ring-yellow-500
-          "
+          className="w-full bg-zinc-800 rounded-xl p-3 mb-4 text-right outline-none focus:ring-2 focus:ring-yellow-500"
         />
-
-        {/* Password */}
 
         <input
           dir="rtl"
@@ -111,20 +69,8 @@ function Login() {
           placeholder="رمز عبور"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="
-            w-full
-            bg-zinc-800
-            rounded-xl
-            p-3
-            mb-4
-            text-right
-            outline-none
-            focus:ring-2
-            focus:ring-yellow-500
-          "
+          className="w-full bg-zinc-800 rounded-xl p-3 mb-4 text-right outline-none focus:ring-2 focus:ring-yellow-500"
         />
-
-        {/* Error */}
 
         {error && (
           <p className="text-red-500 text-sm text-center mb-4">
@@ -132,29 +78,22 @@ function Login() {
           </p>
         )}
 
-        {/* Login Button */}
-
         <button
           onClick={handleLogin}
-          className="
-            w-full
-            bg-yellow-500
-            text-black
-            font-bold
-            p-3
-            rounded-xl
-            hover:bg-yellow-400
-            hover:scale-105
-            transition
-          "
+          className="w-full bg-yellow-500 text-black font-bold p-3 rounded-xl hover:bg-yellow-400 transition"
         >
           ورود
         </button>
 
+        <button
+          onClick={() => navigate("/register")}
+          className="w-full mt-3 text-zinc-400 hover:text-yellow-400 transition"
+        >
+          حساب ندارید؟ ثبت نام
+        </button>
       </div>
-
     </div>
   );
 }
 
-export default Login;
+export default UserLogin;
