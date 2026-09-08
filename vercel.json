@@ -17,12 +17,10 @@
     {
       "source": "/api/(.*)",
       "destination": "/backend/server.js"
-    }
-  ],
-  "routes": [
+    },
     {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/(.*)",
+      "destination": "/dist/$1"
     }
   ]
 }
