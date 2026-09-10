@@ -2,8 +2,7 @@
 import { useEffect, useState } from "react";
 import type { Product } from "../componenets/home/ProductCard";
 
-const API_URL = "http://localhost:5000/api/products";
-
+const API_URL = "https://cafe-menu-backend-615c.onrender.com/api/products";
 function useProducts() {
   const [productList, setProductList] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
