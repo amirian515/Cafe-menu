@@ -33,7 +33,7 @@ function Footer() {
         </div>
 
         <div>
-        <h4 className="font-bold mb-3 text-right">ما را دنبال کنید</h4>
+        <h4 className="font-bold mb-3 text-right hidden md:block">ما را دنبال کنید</h4>
         <div className="flex flex-col md:flex-row gap-3 items-end">
                     <a href="#" className="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-full">
                     <SiInstagram size={16} color="#fff" />
