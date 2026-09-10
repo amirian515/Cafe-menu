@@ -23,7 +23,7 @@ function Profile() {
         const token = localStorage.getItem("userToken");
 
         const profileResponse = await fetch(
-          "http://localhost:5000/api/user-auth/profile",
+          "https://cafe-menu-backend-615c.onrender.com/api/user-auth/profile",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -40,7 +40,7 @@ function Profile() {
         setUser(profileData);
 
         const ordersResponse = await fetch(
-          "http://localhost:5000/api/orders/my-orders",
+          "https://cafe-menu-backend-615c.onrender.com/api/orders/my-orders",
           {
             headers: {
               Authorization: `Bearer ${token}`,

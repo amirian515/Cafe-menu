@@ -31,8 +31,8 @@ function Register() {
     }
 
     try {
-      const response = await fetch(
-        "http://localhost:5000/api/user-auth/register",
+        const response = await fetch(
+          "https://cafe-menu-backend-615c.onrender.com/api/user-auth/register",
         {
           method: "POST",
           headers: {

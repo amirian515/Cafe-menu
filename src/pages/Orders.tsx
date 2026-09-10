@@ -22,7 +22,7 @@ function Orders() {
         const token = localStorage.getItem("userToken");
 
         const response = await fetch(
-          "http://localhost:5000/api/orders/my-orders",
+          "https://cafe-menu-backend-615c.onrender.com/api/orders/my-orders",
           {
             headers: {
               Authorization: `Bearer ${token}`,

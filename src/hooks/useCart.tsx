@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import type { Product } from "../componenets/home/ProductCard";
 
-const API_URL = "http://localhost:5000/api/orders";
-
+const API_URL =
+  "https://cafe-menu-backend-615c.onrender.com/api/orders";
 export type CartItem = {
   product: Product;
   quantity: number;
