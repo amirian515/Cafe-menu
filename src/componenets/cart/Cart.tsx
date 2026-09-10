@@ -108,6 +108,10 @@ function Cart({
             border-t
             border-zinc-700
             bg-zinc-800
+            fixed
+            bottom-0
+            inset-x-0
+            z-50
           "
         >
 
