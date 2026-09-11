@@ -185,11 +185,13 @@ function Profile() {
                 <div
                   key={`${lastOrder._id}-${index}`}
                   className="flex justify-between items-center border-b border-zinc-700 mb-3 pb-3 last:border-none"
-                >
+                ><div className="text-yellow-400 rtl flex gap-1">
+                  <p>تومان</p>
+                  <p >
+                    {(item.product.price * item.quantity).toLocaleString()}
+                  </p></div>
 
-                  <p className="text-yellow-400 rtl">
-                   تومان {(item.product.price * item.quantity).toLocaleString()}
-                  </p>
+
 
                   <div className="text-right">
 
