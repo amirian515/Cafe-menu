@@ -89,9 +89,9 @@ function Orders() {
 
               <div className="flex justify-between mb-4">
 
-                <h2 className="text-yellow-500 text-ltr md:text-xl">
-                  شماره سفارش :
-                  {order._id.slice(-4)}
+                <h2 className="text-yellow-500 text-ltr md:text-xl flex gap-1">
+                  <p>{order._id.slice(-4)}</p>
+                   : شماره سفارش
                 </h2>
 
                 <div className="text-gray-400 text-right">
@@ -173,7 +173,7 @@ function Orders() {
                 "
               >
 
-                <span>مجموع :</span>
+                <span> : مجموع </span>
 
                 <span>
                   {order.total.toLocaleString()} تومان
