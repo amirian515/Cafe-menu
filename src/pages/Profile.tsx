@@ -188,7 +188,7 @@ function Profile() {
                 >
 
                   <p className="text-yellow-400 rtl">
-                    {(item.product.price * item.quantity).toLocaleString()} تومان
+                   تومان {(item.product.price * item.quantity).toLocaleString()}
                   </p>
 
                   <div className="text-right">
@@ -216,16 +216,16 @@ function Profile() {
               <div className="text-right pt-5 flex justify-between">
 
                 <p className="text-yellow-400 font-bold pt-5">
-                  مجموع : {lastOrder.total.toLocaleString()} تومان
+                  مجموع : {lastOrder.total.toLocaleString()}
                 </p>
 
                 <div>
                   <p>
-                    {lastOrder.date} : تاریخ سفارش
+                    {lastOrder.date} : تاریخ
                   </p>
 
                   <p>
-                    وضعیت : {lastOrder.status}
+                    {lastOrder.status}
                   </p>
                 </div>
 
